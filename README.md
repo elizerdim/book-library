@@ -1,6 +1,6 @@
-# Challenge/Project Name (e.g. Frontend Mentor - Results summary component solution)
+# JavaScript Library Project
 
-This is a solution to the [e.g. Results summary component challenge on Frontend Mentor](https://www.example.com). 
+This is a solution to the [Library project from the Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-library). 
 
 ## Table of contents
 
@@ -11,10 +11,7 @@ This is a solution to the [e.g. Results summary component challenge on Frontend 
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -23,7 +20,7 @@ This is a solution to the [e.g. Results summary component challenge on Frontend 
 Users should be able to:
 
 - View the optimal layout for the interface depending on their device's screen size
-- See hover and focus states for all interactive elements on the page
+- Add new books to the library and remove existing ones
 
 ### Screenshot
 
@@ -38,14 +35,10 @@ Users should be able to:
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- HTML
+- CSS 
+- JavaScript
+- Object-Oriented Programming
 
 ### What I learned
 
@@ -69,21 +62,7 @@ const proudOfThisFunc = () => {
 
 If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
 
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
 ### Useful resources
 
 - [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
 - [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-## Author
-
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
