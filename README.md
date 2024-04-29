@@ -64,5 +64,5 @@ If you want more help with writing markdown, we'd recommend checking out [The Ma
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [```<dialog>``` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) - ```<dialog>``` element can be used for form modals.
+- [checkbox input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox) - ```<fieldset>``` and ```<legend>``` elements can be used to link a question to checkbox and radio type input elements along with ```<label>``` elements that describe choices.
