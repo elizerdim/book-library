@@ -1,4 +1,5 @@
 const newBookBtn = document.getElementById('new-book-btn');
+const booksDisplay = document.getElementById('books');
 const newBookModal = document.getElementById('new-book-modal');
 const titleInput = document.getElementById('new-book-title');
 const authorInput = document.getElementById('new-book-author');
@@ -16,12 +17,11 @@ let newBookPages;
 let newBookRead;
 
 function displayBooks(books) {
-  const booksUI = document.getElementById('books');
-  booksUI.innerHTML = '';
+  booksDisplay.innerHTML = '';
 
   books.forEach(
     ({ title, author, pages, read }) => {
-      booksUI.innerHTML += `
+      booksDisplay.innerHTML += `
         <article class="book">
           <h2 class="book-title">${title}</h2>
           <p class="book-author">by ${author}</p>
