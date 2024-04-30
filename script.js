@@ -12,6 +12,9 @@ const cancelAddBookBtn = document.getElementById('cancel-add-book-btn');
 const discardChangesModal = document.getElementById('discard-changes-modal');
 const discardChangesBtn = document.getElementById('discard-changes-btn');
 const cancelDiscardChangesBtn = document.getElementById('cancel-discard-changes-btn');
+const removeBookModal = document.getElementById('remove-book-modal');
+const removeBtn = document.getElementById('remove-btn');
+const cancelRemoveBtn = document.getElementById('cancel-remove-btn');
 
 const library = [];
 
@@ -19,6 +22,7 @@ let newBookTitle;
 let newBookAuthor;
 let newBookPages;
 let newBookRead;
+let bookIdToRemove;
 
 function displayBooks(books) {
   booksDisplay.innerHTML = '';
@@ -31,7 +35,7 @@ function displayBooks(books) {
           <p class="book-author">by ${author}</p>
           <p class="book-pages">${pages} pages</p>
           <button type="button" class="book-read-btn" onclick="toggleReadStatus(this)">${read ? "Read" : "Not read"}</button>
-          <button type="button" class="book-remove-btn" onclick="removeBook(this)">Remove</button>
+          <button type="button" class="book-remove-btn" onclick="openRemoveBookModal(this)">Remove</button>
         </article>
       `
     }
@@ -64,10 +68,10 @@ function toggleReadStatus(toggleReadBtn) {
   toggleReadBtn.innerText = library[bookIndex].read ? "Read" : "Not read";
 } 
 
-function removeBook(removeBtn) {
-  const bookIndex = library.findIndex(book => book.id === Number(removeBtn.parentElement.id));
-  library.splice(bookIndex, 1);
-  removeBtn.parentElement.remove();
+function openRemoveBookModal(removeBtn) {
+  removeBookModal.show();
+
+  bookIdToRemove = Number(removeBtn.parentElement.id);
 }
 
 function resetInputValues() {
@@ -111,3 +115,16 @@ discardChangesBtn.addEventListener('click', () => {
 cancelDiscardChangesBtn.addEventListener('click', () => {
   discardChangesModal.close();
 })
+
+removeBtn.addEventListener('click', () => {
+  const bookIndex = library.findIndex(book => book.id === bookIdToRemove);
+  library.splice(bookIndex, 1);
+  
+  const bookElementToBeRemoved = document.getElementById(`${bookIdToRemove}`);
+  bookElementToBeRemoved.remove();
+  removeBookModal.close();
+})
+
+cancelRemoveBtn.addEventListener('click', () => {
+  removeBookModal.close();
+}) 
