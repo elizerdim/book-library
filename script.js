@@ -9,6 +9,9 @@ const readInput = document.getElementById('new-book-read');
 const notReadInput = document.getElementById('new-book-not-read');
 const addBookBtn = document.getElementById('add-book-btn');
 const cancelAddBookBtn = document.getElementById('cancel-add-book-btn');
+const discardChangesModal = document.getElementById('discard-changes-modal');
+const discardChangesBtn = document.getElementById('discard-changes-btn');
+const cancelDiscardChangesBtn = document.getElementById('cancel-discard-changes-btn');
 
 const library = [];
 
@@ -85,6 +88,26 @@ newBookForm.addEventListener('submit', (e) => {
 })
 
 cancelAddBookBtn.addEventListener('click', () => {
+  const inputsContainValues = 
+    titleInput.value ||
+    authorInput.value ||
+    pagesInput.value ||
+    readInput.checked ||
+    notReadInput.checked;
+
+  if (inputsContainValues) {
+    discardChangesModal.showModal();
+  } else {
+    newBookModal.close();
+  }
+})
+
+discardChangesBtn.addEventListener('click', () => {
   resetInputValues();
+  discardChangesModal.close();
   newBookModal.close();
+})
+
+cancelDiscardChangesBtn.addEventListener('click', () => {
+  discardChangesModal.close();
 })
