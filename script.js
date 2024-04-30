@@ -34,7 +34,6 @@ function displayBooks(books) {
 }
 
 // TODO: Add functionality to book-read-btn buttons
-displayBooks(library);
 
 function Book(title, author, pages, read) {
   this.title = title;
