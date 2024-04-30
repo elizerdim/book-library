@@ -1,4 +1,19 @@
+const newBookBtn = document.getElementById('new-book-btn');
+const newBookModal = document.getElementById('new-book-modal');
+const titleInput = document.getElementById('new-book-title');
+const authorInput = document.getElementById('new-book-author');
+const pagesInput = document.getElementById('new-book-pages');
+const readInput = document.getElementById('new-book-read');
+const notReadInput = document.getElementById('new-book-not-read');
+const addBookBtn = document.getElementById('add-book-btn');
+const cancelAddBookBtn = document.getElementById('cancel-add-book-btn');
+
 const library = [];
+
+let newBookTitle;
+let newBookAuthor;
+let newBookPages;
+let newBookRead;
 
 function displayBooks(books) {
   const booksUI = document.getElementById('books');
@@ -28,19 +43,21 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-const newBookBtn = document.getElementById('new-book-btn');
-const newBookModal = document.getElementById('new-book-modal');
-const titleInput = document.getElementById('new-book-title');
-const authorInput = document.getElementById('new-book-author');
-const pagesInput = document.getElementById('new-book-pages');
-const readInput = document.getElementById('new-book-read');
-const notReadInput = document.getElementById('new-book-not-read');
-const addBookBtn = document.getElementById('add-book-btn');
-const cancelAddBookBtn = document.getElementById('cancel-add-book-btn');
-let newBookTitle;
-let newBookAuthor;
-let newBookPages;
-let newBookRead;
+function addBook() {
+  const newBook = new Book(newBookTitle, newBookAuthor, newBookPages, newBookRead);
+  library.push(newBook);
+  displayBooks(library);
+  resetInputValues();
+  newBookModal.close();
+}
+
+function resetInputValues() {
+  titleInput.value = '';
+  authorInput.value = '';
+  pagesInput.value = null;
+  readInput.checked = false;
+  notReadInput.checked = false;
+}
 
 newBookBtn.addEventListener('click', () => {
   newBookModal.showModal();
@@ -76,19 +93,3 @@ notReadInput.addEventListener('change', (e) => {
     newBookRead = false;
   }
 })
-
-function resetInputValues() {
-  titleInput.value = '';
-  authorInput.value = '';
-  pagesInput.value = null;
-  readInput.checked = false;
-  notReadInput.checked = false;
-}
-
-function addBook() {
-  const newBook = new Book(newBookTitle, newBookAuthor, newBookPages, newBookRead);
-  library.push(newBook);
-  displayBooks(library);
-  resetInputValues();
-  newBookModal.close();
-}
