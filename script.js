@@ -44,6 +44,10 @@ function Book(title, author, pages, read) {
 }
 
 function addBook() {
+  newBookTitle = titleInput.value;
+  newBookAuthor = authorInput.value;
+  newBookPages = pagesInput.value;
+  newBookRead = readInput.value;
   const newBook = new Book(newBookTitle, newBookAuthor, newBookPages, newBookRead);
   library.push(newBook);
   displayBooks(library);
@@ -71,28 +75,4 @@ newBookForm.addEventListener('submit', (e) => {
 cancelAddBookBtn.addEventListener('click', () => {
   resetInputValues();
   newBookModal.close();
-})
-
-titleInput.addEventListener('change', (e) => {
-  newBookTitle = e.target.value;
-})
-
-authorInput.addEventListener('change', (e) => {
-  newBookAuthor = e.target.value;
-})
-
-pagesInput.addEventListener('change', (e) => {
-  newBookPages = e.target.value;
-})
-
-readInput.addEventListener('change', (e) => {
-  if (e.target.checked === true) {
-    newBookRead = true;
-  }
-})
-
-notReadInput.addEventListener('change', (e) => {
-  if (e.target.checked === true) {
-    newBookRead = false;
-  }
 })
