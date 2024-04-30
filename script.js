@@ -21,13 +21,14 @@ function displayBooks(books) {
   booksDisplay.innerHTML = '';
 
   books.forEach(
-    ({ title, author, pages, read }) => {
+    ({ id, title, author, pages, read }) => {
       booksDisplay.innerHTML += `
-        <article class="book">
+        <article class="book" id="${id}">
           <h2 class="book-title">${title}</h2>
           <p class="book-author">by ${author}</p>
           <p class="book-pages">${pages} pages</p>
           <button type="button" class="book-read-btn">${read ? "Read" : "Not read"}</button>
+          <button type="button" class="book-remove-btn" onclick="removeBook(this)">Remove</button>
         </article>
       `
     }
@@ -37,6 +38,7 @@ function displayBooks(books) {
 // TODO: Add functionality to book-read-btn buttons
 
 function Book(title, author, pages, read) {
+  this.id = Date.now() + Math.random();
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -53,6 +55,12 @@ function addBook() {
   displayBooks(library);
   resetInputValues();
   newBookModal.close();
+}
+
+function removeBook(removeBtn) {
+  const bookIndex = library.findIndex(book => book.id === Number(removeBtn.parentElement.id));
+  library.splice(bookIndex, 1);
+  removeBtn.parentElement.remove();
 }
 
 function resetInputValues() {
