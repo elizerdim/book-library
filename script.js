@@ -16,7 +16,11 @@ const removeBookModal = document.getElementById('remove-book-modal');
 const removeBtn = document.getElementById('remove-btn');
 const cancelRemoveBtn = document.getElementById('cancel-remove-btn');
 
-const library = [];
+const library = JSON.parse(localStorage.getItem('books')) || [];
+
+if (library.length) {
+  displayBooks(library);
+}
 
 let newBookTitle;
 let newBookAuthor;
@@ -57,6 +61,7 @@ function addBook() {
   newBookRead = readInput.value;
   const newBook = new Book(newBookTitle, newBookAuthor, newBookPages, newBookRead);
   library.unshift(newBook);
+  localStorage.setItem('books', JSON.stringify(library));
   displayBooks(library);
   resetInputValues();
   newBookModal.close();
@@ -65,6 +70,7 @@ function addBook() {
 function toggleReadStatus(toggleReadBtn) {
   const bookIndex = library.findIndex(book => book.id === Number(toggleReadBtn.parentElement.id));
   library[bookIndex].read = !library[bookIndex].read;
+  localStorage.setItem('books', JSON.stringify(library));
   toggleReadBtn.innerText = library[bookIndex].read ? "Read" : "Not read";
 } 
 
@@ -119,6 +125,7 @@ cancelDiscardChangesBtn.addEventListener('click', () => {
 removeBtn.addEventListener('click', () => {
   const bookIndex = library.findIndex(book => book.id === bookIdToRemove);
   library.splice(bookIndex, 1);
+  localStorage.setItem('books', JSON.stringify(library));
   
   const bookElementToBeRemoved = document.getElementById(`${bookIdToRemove}`);
   bookElementToBeRemoved.remove();
