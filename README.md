@@ -66,3 +66,4 @@ If you want more help with writing markdown, we'd recommend checking out [The Ma
 
 - [```<dialog>``` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) - ```<dialog>``` element can be used for form modals.
 - [checkbox input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox) - ```<fieldset>``` and ```<legend>``` elements can be used to link a question to checkbox and radio type input elements along with ```<label>``` elements that describe choices.
+- [form validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation) - built-in form validation attributes

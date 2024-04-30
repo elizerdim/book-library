@@ -1,6 +1,7 @@
 const newBookBtn = document.getElementById('new-book-btn');
 const booksDisplay = document.getElementById('books');
 const newBookModal = document.getElementById('new-book-modal');
+const newBookForm = document.getElementById('new-book-form');
 const titleInput = document.getElementById('new-book-title');
 const authorInput = document.getElementById('new-book-author');
 const pagesInput = document.getElementById('new-book-pages');
@@ -62,7 +63,10 @@ newBookBtn.addEventListener('click', () => {
   newBookModal.showModal();
 })
 
-addBookBtn.addEventListener('click', addBook)
+newBookForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  addBook();
+})
 
 cancelAddBookBtn.addEventListener('click', () => {
   resetInputValues();
