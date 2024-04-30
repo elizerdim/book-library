@@ -49,7 +49,7 @@ function addBook() {
   newBookPages = pagesInput.value;
   newBookRead = readInput.value;
   const newBook = new Book(newBookTitle, newBookAuthor, newBookPages, newBookRead);
-  library.push(newBook);
+  library.unshift(newBook);
   displayBooks(library);
   resetInputValues();
   newBookModal.close();
