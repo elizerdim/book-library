@@ -27,15 +27,13 @@ function displayBooks(books) {
           <h2 class="book-title">${title}</h2>
           <p class="book-author">by ${author}</p>
           <p class="book-pages">${pages} pages</p>
-          <button type="button" class="book-read-btn">${read ? "Read" : "Not read"}</button>
+          <button type="button" class="book-read-btn" onclick="toggleReadStatus(this)">${read ? "Read" : "Not read"}</button>
           <button type="button" class="book-remove-btn" onclick="removeBook(this)">Remove</button>
         </article>
       `
     }
   )
 }
-
-// TODO: Add functionality to book-read-btn buttons
 
 function Book(title, author, pages, read) {
   this.id = Date.now() + Math.random();
@@ -56,6 +54,12 @@ function addBook() {
   resetInputValues();
   newBookModal.close();
 }
+
+function toggleReadStatus(toggleReadBtn) {
+  const bookIndex = library.findIndex(book => book.id === Number(toggleReadBtn.parentElement.id));
+  library[bookIndex].read = !library[bookIndex].read;
+  toggleReadBtn.innerText = library[bookIndex].read ? "Read" : "Not read";
+} 
 
 function removeBook(removeBtn) {
   const bookIndex = library.findIndex(book => book.id === Number(removeBtn.parentElement.id));
