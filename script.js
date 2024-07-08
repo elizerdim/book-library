@@ -31,6 +31,9 @@ class Book {
   }
 }
 
+const library = JSON.parse(localStorage.getItem('books')) || [];
+library.forEach(book => Object.setPrototypeOf(book, Book.prototype))
+
 function displayBooks(books) {
   booksDisplay.innerHTML = '';
 
