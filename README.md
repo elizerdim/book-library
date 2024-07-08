@@ -34,9 +34,11 @@ Users should be able to:
   library.forEach(book => Object.setPrototypeOf(book, Book.prototype))
   ```
 
+- The difference between modal and non-modal `<dialog>`: The HTML `<dialog>` element is used to create both modal and non-modal dialog boxes. Modal dialog boxes interrupt interaction with the rest of the page being inert, while non-modal dialog boxes allow interaction with the rest of the page. JavaScript should be used to display the `<dialog>` element. Use the `.showModal()` method to display a modal dialog and the `.show()` method to display a non-modal dialog. (explanation from MDN)
+
 ## Useful resources
 
-- [`<dialog>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) - `<dialog>` element can be used for form modals.
+- [`<dialog>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) - `<dialog>` element can be used for form modals - show() and showModal() methods do different things.
 - [checkbox input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox) - `<fieldset>` and `<legend>` elements can be used to link a question to checkbox and radio type input elements along with `<label>` elements that describe choices.
 - [form validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation) - built-in form validation attributes
 - [creating a unique id number](https://stackoverflow.com/a/40591207) - Date.now() + Math.random() creates a unique number that can be used as an id

@@ -81,7 +81,7 @@ function displayBooks(books) {
   }));
 
   [...removeBookBtns].forEach(btn => btn.addEventListener('click', (e) => {
-    removeBookModal.show();
+    removeBookModal.showModal();
     bookIdToRemove = Number(e.target.parentElement.id);
   }))
 }
