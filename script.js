@@ -1,5 +1,12 @@
 const newBookBtn = document.getElementById('new-book-btn');
 const booksDisplay = document.getElementById('books');
+// Remove book modal
+const toggleReadBtns = document.getElementsByClassName('toggle-read-status-btn');
+const removeBookBtns = document.getElementsByClassName('remove-book-btn');
+const removeBookModal = document.getElementById('remove-book-modal');
+const removeBtn = document.getElementById('remove-btn');
+const cancelRemoveBtn = document.getElementById('cancel-remove-btn');
+// New book modal
 const newBookModal = document.getElementById('new-book-modal');
 const newBookForm = document.getElementById('new-book-form');
 const titleInput = document.getElementById('new-book-title');
@@ -9,15 +16,12 @@ const readInput = document.getElementById('new-book-read');
 const notReadInput = document.getElementById('new-book-not-read');
 const addBookBtn = document.getElementById('add-book-btn');
 const cancelAddBookBtn = document.getElementById('cancel-add-book-btn');
+// Discard changes modal 
 const discardChangesModal = document.getElementById('discard-changes-modal');
 const discardChangesBtn = document.getElementById('discard-changes-btn');
 const cancelDiscardChangesBtn = document.getElementById('cancel-discard-changes-btn');
-const toggleReadBtns = document.getElementsByClassName('toggle-read-status-btn');
-const removeBookBtns = document.getElementsByClassName('remove-book-btn');
-const removeBookModal = document.getElementById('remove-book-modal');
-const removeBtn = document.getElementById('remove-btn');
-const cancelRemoveBtn = document.getElementById('cancel-remove-btn');
 
+// Book class
 class Book {
   id = Date.now() + Math.random();
   
@@ -42,6 +46,7 @@ class Book {
   }
 }
 
+// Retrieve books from localStorage and display
 const library = JSON.parse(localStorage.getItem('books')) || [];
 library.forEach(book => Object.setPrototypeOf(book, Book.prototype))
 
@@ -66,6 +71,7 @@ function displayBooks(books) {
     }
   );
 
+  // Add event listeners to the buttons created above
   [...toggleReadBtns].forEach(btn => btn.addEventListener('click', (e) => {
     const bookId = Number(e.target.parentElement.id);
     const book = library.find(book => book.id === bookId);
@@ -80,6 +86,7 @@ function displayBooks(books) {
   }))
 }
 
+// Remove book modal logic
 let bookIdToRemove;
 
 removeBtn.addEventListener('click', () => {
@@ -97,6 +104,7 @@ cancelRemoveBtn.addEventListener('click', () => {
   removeBookModal.close();
 });
 
+// New book modal logic
 function resetInputValues() {
   titleInput.value = '';
   authorInput.value = '';
@@ -134,6 +142,7 @@ cancelAddBookBtn.addEventListener('click', () => {
   }
 })
 
+// Discard changes modal logic
 discardChangesBtn.addEventListener('click', () => {
   resetInputValues();
   discardChangesModal.close();
