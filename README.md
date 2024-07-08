@@ -29,10 +29,10 @@ Users should be able to:
 
 - Using JSON.stringify and JSON.parse on class instances converts them into object literals, which removes their prototype. Setting their prototype after retrieving them from the localStorage solves this issue.
 
-```js
-const library = JSON.parse(localStorage.getItem('books')) || [];
-library.forEach(book => Object.setPrototypeOf(book, Book.prototype))
-```
+  ```js
+  const library = JSON.parse(localStorage.getItem('books')) || [];
+  library.forEach(book => Object.setPrototypeOf(book, Book.prototype))
+  ```
 
 ## Useful resources
 
