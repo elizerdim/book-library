@@ -16,17 +16,20 @@ const removeBookModal = document.getElementById('remove-book-modal');
 const removeBtn = document.getElementById('remove-btn');
 const cancelRemoveBtn = document.getElementById('cancel-remove-btn');
 
-const library = JSON.parse(localStorage.getItem('books')) || [];
+class Book {
+  id = Date.now() + Math.random();
+  
+  constructor(title, author, pages, readStatus) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.readStatus = readStatus;
+  }
 
-if (library.length) {
-  displayBooks(library);
+  toggleReadStatus() {
+    this.readStatus = !this.readStatus;
+  }
 }
-
-let newBookTitle;
-let newBookAuthor;
-let newBookPages;
-let newBookRead;
-let bookIdToRemove;
 
 function displayBooks(books) {
   booksDisplay.innerHTML = '';
