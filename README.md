@@ -49,6 +49,10 @@ Users should be able to:
   });
   ```
 
+## Continued development
+
+I created a branch called OOP when I started refactoring the code with OOP principles, but I merged before publishing to remote, which seemed to result in no branch being created on gitHub at all. Later on, I kept committing on OOP branch and used `git push --set-upstream origin OOP` as suggested by the terminal to push the new commits to remote, but now it looks like the branch was created many commits after I first created it. Admittedly, I should look more into git branches and become more adept at using them. 
+
 ## Useful resources
 
 - [`<dialog>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) - `<dialog>` element can be used for form modals - show() and showModal() methods do different things.
