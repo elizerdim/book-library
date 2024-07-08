@@ -65,13 +65,6 @@ function addBook() {
   newBookModal.close();
 }
 
-function toggleReadStatus(toggleReadBtn) {
-  const bookIndex = library.findIndex(book => book.id === Number(toggleReadBtn.parentElement.id));
-  library[bookIndex].read = !library[bookIndex].read;
-  localStorage.setItem('books', JSON.stringify(library));
-  toggleReadBtn.innerText = library[bookIndex].read ? "Read" : "Not read";
-} 
-
 function openRemoveBookModal(removeBtn) {
   removeBookModal.show();
 
