@@ -8,10 +8,11 @@ Users should be able to:
 
 - View the optimal layout for the interface depending on their device's screen size
 - Add new books to the library and remove existing ones
+- Toggle the read status of the books
 
 ## Screenshot
 
-![](./screenshot.jpg)
+![](./screenshot.png)
 
 ## Links
 
@@ -24,6 +25,7 @@ Users should be able to:
 - CSS 
 - JavaScript
 - Object-Oriented Programming
+- CRUD
 
 ## What I learned
 
