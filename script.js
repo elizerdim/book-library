@@ -57,11 +57,7 @@ function displayBooks(books) {
 }
 
 function addBook() {
-  newBookTitle = titleInput.value;
-  newBookAuthor = authorInput.value;
-  newBookPages = pagesInput.value;
-  newBookRead = readInput.value;
-  const newBook = new Book(newBookTitle, newBookAuthor, newBookPages, newBookRead);
+  const newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value);
   library.unshift(newBook);
   localStorage.setItem('books', JSON.stringify(library));
   displayBooks(library);
