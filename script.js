@@ -152,3 +152,32 @@ discardChangesBtn.addEventListener('click', () => {
 cancelDiscardChangesBtn.addEventListener('click', () => {
   discardChangesModal.close();
 })
+
+// Close modal for outside click
+function closeModal() {
+  removeBookModal.close();
+  discardChangesModal.close();
+}
+
+[removeBookModal, discardChangesModal, newBookModal].forEach(modal => modal.addEventListener('click', (e) => {
+  const inputsContainValues = 
+    titleInput.value ||
+    authorInput.value ||
+    pagesInput.value ||
+    readInput.checked ||
+    notReadInput.checked;
+  
+  if (e.target === newBookModal && inputsContainValues) {
+    return;
+  } 
+
+  if (e.target === e.currentTarget) {
+    e.stopPropagation();
+    closeModal();
+  }
+
+  if (e.target === e.currentTarget && e.target === newBookModal && !inputsContainValues) {
+    newBookModal.close();
+  }
+  
+}));

@@ -36,6 +36,19 @@ Users should be able to:
 
 - The difference between modal and non-modal `<dialog>`: The HTML `<dialog>` element is used to create both modal and non-modal dialog boxes. Modal dialog boxes interrupt interaction with the rest of the page being inert, while non-modal dialog boxes allow interaction with the rest of the page. JavaScript should be used to display the `<dialog>` element. Use the `.showModal()` method to display a modal dialog and the `.show()` method to display a non-modal dialog. (explanation from MDN)
 
+- I used the following code snipped as an example to close modals for outside clicks:
+
+  ```js
+  const modal = document.querySelector(".video-modal");
+
+  document.querySelector(".video-modal").addEventListener('click', function(e) {
+    if (e.target === e.currentTarget) {
+      e.stopPropagation();
+      modal.close();
+    }
+  });
+  ```
+
 ## Useful resources
 
 - [`<dialog>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) - `<dialog>` element can be used for form modals - show() and showModal() methods do different things.
