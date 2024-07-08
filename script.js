@@ -30,6 +30,10 @@ class Book {
   toggleReadStatus() {
     this.readStatus = !this.readStatus;
   }
+
+  addToLibrary(library) {
+    library.unshift(this);
+  }
 }
 
 const library = JSON.parse(localStorage.getItem('books')) || [];
