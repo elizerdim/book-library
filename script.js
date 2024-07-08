@@ -108,7 +108,7 @@ newBookBtn.addEventListener('click', () => {
 
 newBookForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value);
+  const newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.checked);
   newBook.addToLibrary(library);
   localStorage.setItem('books', JSON.stringify(library));
   displayBooks(library);
