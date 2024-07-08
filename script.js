@@ -13,6 +13,7 @@ const discardChangesModal = document.getElementById('discard-changes-modal');
 const discardChangesBtn = document.getElementById('discard-changes-btn');
 const cancelDiscardChangesBtn = document.getElementById('cancel-discard-changes-btn');
 const removeBookModal = document.getElementById('remove-book-modal');
+const toggleReadBtns = document.getElementsByClassName('toggle-read-status-btn')
 const removeBtn = document.getElementById('remove-btn');
 const cancelRemoveBtn = document.getElementById('cancel-remove-btn');
 
@@ -78,6 +79,14 @@ function resetInputValues() {
   readInput.checked = false;
   notReadInput.checked = false;
 }
+
+[...toggleReadBtns].forEach(btn => btn.addEventListener('click', (e) => {
+  const bookId = Number(e.target.parentElement.id);
+  const book = library.find(book => book.id === bookId);
+  book.toggleReadStatus();
+  btn.innerText = book.readStatus ? "Read" : "Not read";
+  localStorage.setItem('books', JSON.stringify(library));
+}))
 
 newBookBtn.addEventListener('click', () => {
   newBookModal.showModal();
