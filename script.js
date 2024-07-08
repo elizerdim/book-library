@@ -13,7 +13,8 @@ const discardChangesModal = document.getElementById('discard-changes-modal');
 const discardChangesBtn = document.getElementById('discard-changes-btn');
 const cancelDiscardChangesBtn = document.getElementById('cancel-discard-changes-btn');
 const removeBookModal = document.getElementById('remove-book-modal');
-const toggleReadBtns = document.getElementsByClassName('toggle-read-status-btn')
+const toggleReadBtns = document.getElementsByClassName('toggle-read-status-btn');
+const removeBookBtns = document.getElementsByClassName('remove-book-btn');
 const removeBtn = document.getElementById('remove-btn');
 const cancelRemoveBtn = document.getElementById('cancel-remove-btn');
 
@@ -59,17 +60,38 @@ function displayBooks(books) {
           <p class="book-author">by ${book.author}</p>
           <p class="book-pages">${book.pages} pages</p>
           <button type="button" class="toggle-read-status-btn">${book.readStatus ? "Read" : "Not read"}</button>
-          <button type="button" class="book-remove-btn" onclick="openRemoveBookModal(this)">Remove</button>
+          <button type="button" class="remove-book-btn">Remove</button>
         </article>
       `
     }
-  )
-}
+  );
 
-function openRemoveBookModal(removeBtn) {
-  removeBookModal.show();
-
-  bookIdToRemove = Number(removeBtn.parentElement.id);
+  [...toggleReadBtns].forEach(btn => btn.addEventListener('click', (e) => {
+    const bookId = Number(e.target.parentElement.id);
+    const book = library.find(book => book.id === bookId);
+    book.toggleReadStatus();
+    btn.innerText = book.readStatus ? "Read" : "Not read";
+    localStorage.setItem('books', JSON.stringify(library));
+  }));
+  
+  [...removeBookBtns].forEach(btn => btn.addEventListener('click', (e) => {
+    removeBookModal.show();
+    const bookId = Number(e.target.parentElement.id);
+    const book = library.find(book => book.id === bookId);
+  
+    removeBtn.addEventListener('click', () => {
+      console.log(library);
+      book.removeFromLibrary(bookId, library);
+      displayBooks(library);
+      console.log(library);
+      localStorage.setItem('books', JSON.stringify(library));
+      removeBookModal.close();
+    });
+  
+    cancelRemoveBtn.addEventListener('click', () => {
+      removeBookModal.close();
+    });
+  }))
 }
 
 function resetInputValues() {
@@ -79,14 +101,6 @@ function resetInputValues() {
   readInput.checked = false;
   notReadInput.checked = false;
 }
-
-[...toggleReadBtns].forEach(btn => btn.addEventListener('click', (e) => {
-  const bookId = Number(e.target.parentElement.id);
-  const book = library.find(book => book.id === bookId);
-  book.toggleReadStatus();
-  btn.innerText = book.readStatus ? "Read" : "Not read";
-  localStorage.setItem('books', JSON.stringify(library));
-}))
 
 newBookBtn.addEventListener('click', () => {
   newBookModal.showModal();
@@ -126,17 +140,3 @@ discardChangesBtn.addEventListener('click', () => {
 cancelDiscardChangesBtn.addEventListener('click', () => {
   discardChangesModal.close();
 })
-
-removeBtn.addEventListener('click', () => {
-  const bookIndex = library.findIndex(book => book.id === bookIdToRemove);
-  library.splice(bookIndex, 1);
-  localStorage.setItem('books', JSON.stringify(library));
-  
-  const bookElementToBeRemoved = document.getElementById(`${bookIdToRemove}`);
-  bookElementToBeRemoved.remove();
-  removeBookModal.close();
-})
-
-cancelRemoveBtn.addEventListener('click', () => {
-  removeBookModal.close();
-}) 
