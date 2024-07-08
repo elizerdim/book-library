@@ -34,6 +34,11 @@ class Book {
   addToLibrary(library) {
     library.unshift(this);
   }
+
+  removeFromLibrary(id, library) {
+    const bookIndex = library.findIndex(book => book.id === id);
+    library.splice(bookIndex, 1);
+  }
 }
 
 const library = JSON.parse(localStorage.getItem('books')) || [];
