@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,37 +9,41 @@
   <script src="./script.js" defer></script>
   <title>Library</title>
 </head>
+
 <body>
-  <button type="button" class="new-book-btn" id="new-book-btn">Add New Book</button>
-  <dialog id="new-book-modal">
-    <form id="new-book-form">
-      <label for="new-book-title">Title: </label>
+  <div class="new-book-btn-container">
+    <button type="button" class="new-book-btn" id="new-book-btn">Add New Book</button>
+  </div>
+  <dialog class="new-book-modal modal" id="new-book-modal">
+    <form class="new-book-form" id="new-book-form">
+      <label for="new-book-title" class="margin-top">Title: </label>
       <input type="text" id="new-book-title" required>
-      <label for="new-book-author">Author: </label>
+      <label for="new-book-author" class="margin-top">Author: </label>
       <input type="text" id="new-book-author" required>
-      <label for="new-book-pages">Number of pages: </label>
+      <label for="new-book-pages" class="margin-top">Number of pages: </label>
       <input type="number" id="new-book-pages" min="1" required>
-      <fieldset>
+      <fieldset class="margin-top">
         <legend>Have you read the book?</legend>
         <label for="new-book-read-info">Yes: </label>
         <input type="radio" id="new-book-read" name="new-book-read-info" required>
         <label for="new-book-read-info">No: </label>
         <input type="radio" id="new-book-not-read" name="new-book-read-info" required>
       </fieldset>
-      <button type="submit" id="add-book-btn">Add Book</button>
-      <button type="button" id="cancel-add-book-btn">Cancel</button>
+      <button type="submit" id="add-book-btn" class="add-book-btn btn">Add Book</button>
+      <button type="button" id="cancel-add-book-btn" class="cancel-add-book-btn btn">Cancel</button>
     </form>
   </dialog>
-  <dialog id="discard-changes-modal">
+  <dialog id="discard-changes-modal" class="modal">
     <p>Discard unsaved changes?</p>
-    <button type="button" id="discard-changes-btn">Discard</button>
-    <button type="button" id="cancel-discard-changes-btn">Cancel</button>
+    <button type="button" id="discard-changes-btn" class="btn">Discard</button>
+    <button type="button" id="cancel-discard-changes-btn" class="btn">Cancel</button>
   </dialog>
-  <dialog id="remove-book-modal">
+  <dialog id="remove-book-modal" class="modal">
     <p>Remove this book?</p>
-    <button type="button" id="remove-btn">Remove</button>
-    <button type="button" id="cancel-remove-btn">Cancel</button>
+    <button type="button" id="remove-btn" class="btn">Remove</button>
+    <button type="button" id="cancel-remove-btn" class="btn">Cancel</button>
   </dialog>
   <div class="books" id="books"></div>
 </body>
+
 </html>

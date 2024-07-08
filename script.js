@@ -64,8 +64,8 @@ function displayBooks(books) {
           <h2 class="book-title">${book.title}</h2>
           <p class="book-author">by ${book.author}</p>
           <p class="book-pages">${book.pages} pages</p>
-          <button type="button" class="toggle-read-status-btn">${book.readStatus ? "Read" : "Not read"}</button>
-          <button type="button" class="remove-book-btn">Remove</button>
+          <button type="button" class="toggle-read-status-btn btn">${book.readStatus ? "Read" : "Not read"}</button>
+          <button type="button" class="remove-book-btn btn">Remove</button>
         </article>
       `
     }
