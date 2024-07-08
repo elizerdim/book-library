@@ -12,9 +12,9 @@ const cancelAddBookBtn = document.getElementById('cancel-add-book-btn');
 const discardChangesModal = document.getElementById('discard-changes-modal');
 const discardChangesBtn = document.getElementById('discard-changes-btn');
 const cancelDiscardChangesBtn = document.getElementById('cancel-discard-changes-btn');
-const removeBookModal = document.getElementById('remove-book-modal');
 const toggleReadBtns = document.getElementsByClassName('toggle-read-status-btn');
 const removeBookBtns = document.getElementsByClassName('remove-book-btn');
+const removeBookModal = document.getElementById('remove-book-modal');
 const removeBtn = document.getElementById('remove-btn');
 const cancelRemoveBtn = document.getElementById('cancel-remove-btn');
 
