@@ -73,26 +73,29 @@ function displayBooks(books) {
     btn.innerText = book.readStatus ? "Read" : "Not read";
     localStorage.setItem('books', JSON.stringify(library));
   }));
-  
+
   [...removeBookBtns].forEach(btn => btn.addEventListener('click', (e) => {
     removeBookModal.show();
-    const bookId = Number(e.target.parentElement.id);
-    const book = library.find(book => book.id === bookId);
-  
-    removeBtn.addEventListener('click', () => {
-      console.log(library);
-      book.removeFromLibrary(bookId, library);
-      displayBooks(library);
-      console.log(library);
-      localStorage.setItem('books', JSON.stringify(library));
-      removeBookModal.close();
-    });
-  
-    cancelRemoveBtn.addEventListener('click', () => {
-      removeBookModal.close();
-    });
+    bookIdToRemove = Number(e.target.parentElement.id);
   }))
 }
+
+let bookIdToRemove;
+
+removeBtn.addEventListener('click', () => {
+  console.log(library);
+  const book = library.find(book => book.id === bookIdToRemove);
+  console.log(book);
+  book.removeFromLibrary(bookIdToRemove, library);
+  displayBooks(library);
+  console.log(library);
+  localStorage.setItem('books', JSON.stringify(library));
+  removeBookModal.close();
+});
+
+cancelRemoveBtn.addEventListener('click', () => {
+  removeBookModal.close();
+});
 
 function resetInputValues() {
   titleInput.value = '';
