@@ -34,17 +34,21 @@ class Book {
 const library = JSON.parse(localStorage.getItem('books')) || [];
 library.forEach(book => Object.setPrototypeOf(book, Book.prototype))
 
+if (library.length) {
+  displayBooks(library);
+}
+
 function displayBooks(books) {
   booksDisplay.innerHTML = '';
 
   books.forEach(
-    ({ id, title, author, pages, read }) => {
+    book => {
       booksDisplay.innerHTML += `
-        <article class="book" id="${id}">
-          <h2 class="book-title">${title}</h2>
-          <p class="book-author">by ${author}</p>
-          <p class="book-pages">${pages} pages</p>
-          <button type="button" class="book-read-btn" onclick="toggleReadStatus(this)">${read ? "Read" : "Not read"}</button>
+        <article class="book" id="${book.id}">
+          <h2 class="book-title">${book.title}</h2>
+          <p class="book-author">by ${book.author}</p>
+          <p class="book-pages">${book.pages} pages</p>
+          <button type="button" class="toggle-read-status-btn">${book.readStatus ? "Read" : "Not read"}</button>
           <button type="button" class="book-remove-btn" onclick="openRemoveBookModal(this)">Remove</button>
         </article>
       `
