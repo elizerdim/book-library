@@ -61,15 +61,6 @@ function displayBooks(books) {
   )
 }
 
-function addBook() {
-  const newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value);
-  library.unshift(newBook);
-  localStorage.setItem('books', JSON.stringify(library));
-  displayBooks(library);
-  resetInputValues();
-  newBookModal.close();
-}
-
 function openRemoveBookModal(removeBtn) {
   removeBookModal.show();
 
@@ -98,7 +89,12 @@ newBookBtn.addEventListener('click', () => {
 
 newBookForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  addBook();
+  const newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value);
+  newBook.addToLibrary(library);
+  localStorage.setItem('books', JSON.stringify(library));
+  displayBooks(library);
+  resetInputValues();
+  newBookModal.close();
 })
 
 cancelAddBookBtn.addEventListener('click', () => {
