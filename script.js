@@ -56,14 +56,6 @@ function displayBooks(books) {
   )
 }
 
-function Book(title, author, pages, read) {
-  this.id = Date.now() + Math.random();
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
-
 function addBook() {
   newBookTitle = titleInput.value;
   newBookAuthor = authorInput.value;
