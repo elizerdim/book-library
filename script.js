@@ -1,12 +1,12 @@
 const newBookBtn = document.getElementById('new-book-btn');
 const booksDisplay = document.getElementById('books');
-// Remove book modal
+// Remove book modal elements
 const toggleReadBtns = document.getElementsByClassName('toggle-read-status-btn');
 const removeBookBtns = document.getElementsByClassName('remove-book-btn');
 const removeBookModal = document.getElementById('remove-book-modal');
 const removeBtn = document.getElementById('remove-btn');
 const cancelRemoveBtn = document.getElementById('cancel-remove-btn');
-// New book modal
+// New book modal elements
 const newBookModal = document.getElementById('new-book-modal');
 const newBookForm = document.getElementById('new-book-form');
 const titleInput = document.getElementById('new-book-title');
@@ -16,7 +16,7 @@ const readInput = document.getElementById('new-book-read');
 const notReadInput = document.getElementById('new-book-not-read');
 const addBookBtn = document.getElementById('add-book-btn');
 const cancelAddBookBtn = document.getElementById('cancel-add-book-btn');
-// Discard changes modal 
+// Discard changes modal elements
 const discardChangesModal = document.getElementById('discard-changes-modal');
 const discardChangesBtn = document.getElementById('discard-changes-btn');
 const cancelDiscardChangesBtn = document.getElementById('cancel-discard-changes-btn');
