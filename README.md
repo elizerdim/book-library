@@ -16,8 +16,8 @@ Users should be able to:
 
 ## Links
 
-- [View Code](https://github.com/elizerdim/javascript-library)
-- [Live Preview](https://elizerdim.github.io/javascript-library/)
+- [View Code](https://github.com/elizerdim/book-library)
+- [Live Preview](https://elizerdim.github.io/book-library/)
 
 ## Built with
 
